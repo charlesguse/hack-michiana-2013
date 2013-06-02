@@ -8,7 +8,7 @@ def cluster(rows):
     for k, g in itertools.groupby(rows, lambda r: r[0]):
         group_rows = [row[1:] for row in g]
         if len(row[1:]) == 1:
-               result.append({"name": row[0],"size": int(row[1])})
+               result.append({"name": row[0],"size": int(float(row[1]))})
         else:
                result.append({"name": k,"children":cluster(group_rows)})
     return result
